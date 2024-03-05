@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export const PutAcc = () => {
      // Logica de la vista
-     const url = 'http://localhost:6000/api/accesorio'
+     const url = 'http://localhost:5000/api/accesorios'
      //Hooks: Componente nativo de REACT que se encarga de enlazar el contenido de la vista (HTML) la logica del componente en si
  
      const [bocas, setBoca] = useState();
@@ -63,38 +63,38 @@ export const PutAcc = () => {
 
     }
  
-     const submitHandler = async () => {
+     const PutHandler = async () => {
  
          event.preventDefault();
          const data = {
-            accesorio_id : ids,
              boca: bocas,
              canion: canions,
              empunadura: empunaduras,
              mira: miras,
-             culata: culatas
+             culata: culatas,
+             accesorio_id: ids
          }
  
-         const result = await axios.post(url, data);
+         const result = await axios.put(url,data);
          const resultData = (await result).data;
  
          console.log(result);
          console.log(resultData);
  
-     }
+     };
  
  
  
      return (
          <>
              <div className='container mt-5' >
-                 <form onSubmit={submitHandler} >
+                 <form onSubmit={PutHandler} >
                      <fieldset>
                          <legend>Actualizar Accesorios</legend>
  
 
                          <div className="form-group row">
-                             <label className="col-sm-2 col-form-label">Id del arma</label>
+                             <label className="col-sm-2 col-form-label">Id del accesorio</label>
                              <div className="col-sm-10">
                                  <input type="text" className="form-control-plaintext"
                                      name="ids"
@@ -151,7 +151,7 @@ export const PutAcc = () => {
                              </div>
                          </div>
  
-                         <button type="submit" className="btn btn-primary w-100">Ingresar Accesorios</button>
+                         <button type="submit" className="btn btn-primary w-100">Actualizar el Accesorios</button>
                          <br/> 
                            <Link to="/">Ingresar Accesorios</Link>
                            <br/>

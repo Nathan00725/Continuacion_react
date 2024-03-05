@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const PostAcc = () => {
      // Logica de la vista
-     const url = 'http://localhost:6000/api/arma'
+     const url = 'http://localhost:5000/api/accesorios'
      //Hooks: Componente nativo de REACT que se encarga de enlazar el contenido de la vista (HTML) la logica del componente en si
  
      const [bocas, setBoca] = useState();
