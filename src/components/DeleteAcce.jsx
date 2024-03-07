@@ -7,37 +7,32 @@ export const DeleteAcce = () => {
   const url = 'http://localhost:5000/api/accesorios'
   //Hooks: Componente nativo de REACT que se encarga de enlazar el contenido de la vista (HTML) la logica del componente en si
 
-  const [accesorio_id, setAccId] = useState();
+  const [accesorio_id, setId] = useState();
 
  
 
   const idsHandler = (event) => {
 
-      const { name, value } = event.target;
-      setAccId(value);
+    const { name, value } = event.target;
+    setId(value);
 
-  }
+}
 
 
-  const deleteHandler = async () => {
+const deleteHandler = async () => {
 
-      event.preventDefault();
-      
-      const data = {
-        accesorio_id: accesorio_id
-      }
+    event.preventDefault();
 
-      
-    try {
-         const result = await axios.delete(url+ `/${accesorio_id}` , data);   
-        console.log(result.data);
-        console.log(data);
-    } catch (error) {
-        console.error("Error al elimimnar no se encontro el campo:", error)
-    }
+    const result = await axios.delete(url + "/" + accesorio_id);
+    const resultData = (await result).data;
 
-      
- };
+    console.log(result);
+    console.log(resultData);
+    
+
+}
+
+
 
       
 
@@ -55,7 +50,7 @@ export const DeleteAcce = () => {
                           <div className="col-sm-10">
                               <input type="text" className="form-control-plaintext"
                                   name="accesorio_id"
-                                  onClick={idsHandler}
+                                  onChange={idsHandler}
                               />
                           </div>
                       </div>
@@ -68,6 +63,8 @@ export const DeleteAcce = () => {
                         <Link to="/">Ingresar Accesorios</Link>
                         <br/>
                         <Link to="/Put">Actualizar Accesorios</Link>
+
+                       
                   </fieldset>
               </form>
              

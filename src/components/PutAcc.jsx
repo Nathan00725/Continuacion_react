@@ -18,7 +18,7 @@ export const PutAcc = () => {
  
      const [culatas, setCulata] = useState();
 
-     const [ids, setIds] = useState();
+     const [camuflaje_id, setIds] = useState();
  
  
      const bocaHandler = (event) => {
@@ -71,16 +71,15 @@ export const PutAcc = () => {
              canion: canions,
              empunadura: empunaduras,
              mira: miras,
-             culata: culatas,
-             accesorio_id: ids
+             culata: culatas
          }
  
-         const result = await axios.put(url,data);
+         const result = await axios.put(url+ "/" + camuflaje_id ,data);
          const resultData = (await result).data;
  
          console.log(result);
          console.log(resultData);
- 
+         
      };
  
  
@@ -97,7 +96,7 @@ export const PutAcc = () => {
                              <label className="col-sm-2 col-form-label">Id del accesorio</label>
                              <div className="col-sm-10">
                                  <input type="text" className="form-control-plaintext"
-                                     name="ids"
+                                     name="camuflaje_id"
                                      onChange={idsHandler}
                                  />
                              </div>
