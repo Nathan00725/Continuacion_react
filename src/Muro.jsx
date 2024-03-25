@@ -51,31 +51,27 @@ export const Muro = () => {
 
     return (
         <>
-        <div className='container mt-5' style={{ backgroundColor: '#2C3E50', color: '#FFFFFF', padding: '20px', borderRadius: '10px' }}>
+        <div className='container mt-5' style={{ backgroundColor: '#2980B9', color: '#FFFFFF', padding: '20px', borderRadius: '10px' }}>
 
         <button onClick={crearPostHandler}  className="btn btn-primary  w-100" type="button" style={{ backgroundColor: '#283747', color: '#FFFFFF', border: 'none', borderBottom: '1px solid #2980B9' }}  >
                 Crear Post
         </button>
 
-            {
-                dataMuro.map((item) => (
-                    <div key={item.id} className="card text-white bg-secondary mx-auto mt-3 mb-3 w-50" style={{width : '80%' }}  >
-                        <div className="card-header">
-                            <label> {item.nombre_usuario} </label>
-                             
-                            <button  onClick={ ()=> borraPublicacion(item.id) }  className="btn btn-danger mx-2" style={{ backgroundColor: '#2980B9', color: '#FFFFFF' }}  >Borrar</button>  
-
-                            <button onClick={ ()=> editarPublicacion(item.id) }  className="btn btn-warning mx-2"  style={{ backgroundColor: '#2980B9', color: '#FFFFFF' }} >Editar</button>  
-                        </div>
-                        <div className="card-body">
-                            <img src={`data:${item.mime_type};base64,${item.imagen}`}  style={{width:'100%', backgroundColor: '#283747', color: '#FFFFFF', border: 'none', borderBottom: '1px solid #2980B9'
-                         }}  />
-                        </div>
-                        <div className="card-fotter">
-                            <p>{item.caption}</p>
-                        </div>
-                    </div>
-                ))
+            {dataMuro.map((item) => (
+    <div key={item.id} className="card text-white bg-primary mx-auto mt-3 mb-3 w-50" style={{ width: '80%' }}>
+        <div className="card-header" style={{ backgroundColor: '#000000', color: '#FFFFFF' }}>
+            <label>{item.nombre_usuario}</label>
+            <button onClick={() => borraPublicacion(item.id)} className="btn btn-danger mx-2" style={{ backgroundColor: '#2980B9', color: '#FFFFFF' }}>Borrar</button>
+            <button onClick={() => editarPublicacion(item.id)} className="btn btn-warning mx-2" style={{ backgroundColor: '#2980B9', color: '#FFFFFF' }}>Editar</button>
+        </div>
+        <div className="card-body">
+            <img src={`data:${item.mime_type};base64,${item.imagen}`} style={{ width: '100%', backgroundColor: '#283747', color: '#FFFFFF', border: 'none', borderBottom: '1px solid #2980B9' }} />
+        </div>
+        <div className="card-footer" style={{ backgroundColor: '#000000', color: '#FFFFFF' }}>
+            <p >{item.caption}</p>
+        </div>
+    </div>
+))
             }
             </div>
         </>
