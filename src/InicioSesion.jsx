@@ -43,6 +43,16 @@ export const InicioSesion = () => {
                     <legend style={{ color: '#2980B9' }}>Inicio Sesion</legend>
 
                     <div className="form-group row" style={{ backgroundColor: '#34495E', padding: '10px', borderRadius: '5px', marginBottom: '15px' }}>
+                            <label className="col-sm-2 col-form-label">Cual es su nombre de Usuario</label>
+                            <div className="col-sm-10">
+                                <input type="text" className="form-control-plaintext"
+                                    name="nombre_usuario"
+                                    style={{ backgroundColor: '#283747', color: '#FFFFFF', border: 'none', borderBottom: '1px solid #2980B9' }} 
+                                    onChange={onChangeHandler} />
+                            </div>
+                        </div>
+
+                    <div className="form-group row" style={{ backgroundColor: '#34495E', padding: '10px', borderRadius: '5px', marginBottom: '15px' }}>
                             <label className="col-sm-2 col-form-label">Contraseña</label>
                             <div className="col-sm-10">
                                 <input type="password" className="form-control-plaintext"
